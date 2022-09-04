@@ -1,8 +1,44 @@
 package Bank;
 
+import ATM.ATM;
+
+import java.util.ArrayList;
+
 public class Bank {
     private int accountLog =0;
     private int cardNo = 0;
+
+    private ArrayList<ATM> atms = new ArrayList<ATM>();
+    private ArrayList<Profile> profiles = new ArrayList<>();
+
+    public Bank(ArrayList<ATM> atms, ArrayList<Profile> profiles) {
+        this.atms = atms;
+        this.profiles = profiles;
+    }
+
+    public ATM atms(int index) {
+        return atms.get(index);
+    }
+
+    public void setAtm(int index,ATM atm) {
+        atms.set(index,atm);
+    }
+
+    public void addATM (ATM atm){
+        atms.add(atm);
+    }
+
+    public Profile profiles(int index) {
+        return profiles.get(index);
+    }
+
+    public void setProfile(int index,Profile profile) {
+        this.profiles.set(index,profile);
+    }
+
+    public void addProfile(Profile p){
+        profiles.add(p);
+    }
 
     public String accountNumberGenerator(){
         accountLog++;
