@@ -11,9 +11,16 @@ public class Bank {
     private ArrayList<ATM> atms = new ArrayList<ATM>();
     private ArrayList<Profile> profiles = new ArrayList<>();
 
-    public Bank(ArrayList<ATM> atms, ArrayList<Profile> profiles) {
-        this.atms = atms;
-        this.profiles = profiles;
+
+    private static Bank instance = null;
+    public static Bank getInstance(){
+        if (instance==null)
+            instance = new Bank();
+        return instance;
+    }
+    private Bank() {
+        this.atms = new ArrayList<>();
+        this.profiles = new ArrayList<>();
     }
 
     public ATM atms(int index) {
