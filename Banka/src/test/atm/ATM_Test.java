@@ -19,7 +19,6 @@ public class ATM_Test {
     @Test
     public void hasEnoughMoneyTestValid(){
         Transaction testTransaction = new Transaction(100,ac);
-//        assertTrue(true);
         assertTrue(testAtm.hasEnoughMoney(testTransaction));
     }
     @Test

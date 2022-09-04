@@ -20,9 +20,9 @@ public class Bank  implements Serializable {
             instance = new Bank();
         return instance;
     }
-    private static void setInstance(Bank bank){
-        instance = bank;
-    }
+//    private static void setInstance(Bank bank){
+//        instance = bank;
+//    }
     private Bank() {
         this.atms = new ArrayList<>();
         this.profiles = new ArrayList<>();
@@ -33,27 +33,21 @@ public class Bank  implements Serializable {
         else if(index<0) return null;
         else return atms.get(index);
     }
-
-    public void setAtm(int index,ATM atm) {
-        atms.set(index,atm);
-    }
-
+//    public void setAtm(int index,ATM atm) {
+//        atms.set(index,atm);
+//    }
     public void addATM (ATM atm){
         atms.add(atm);
     }
-
     public Profile profiles(int index) {
         return profiles.get(index);
     }
-
-    public void setProfile(int index,Profile profile) {
-        this.profiles.set(index,profile);
-    }
-
+//    public void setProfile(int index,Profile profile) {
+//        this.profiles.set(index,profile);
+//    }
     public void addProfile(Profile p){
         profiles.add(p);
     }
-
     public Profile findProfile(String accountNumber){
         for (Profile p:profiles){
             if(p.getNumber().equals(accountNumber)) return p;

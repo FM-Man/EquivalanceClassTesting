@@ -28,6 +28,7 @@ public class AtmCard implements Serializable {
         transactions.add(t);
         owner.withdraw(t.getAmount());
     }
+
     public String swipe(double amount, ATM atm, int PIN){
         if(PIN!=this.PIN){
             return "PIN does not match!";
