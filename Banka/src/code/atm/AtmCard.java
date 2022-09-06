@@ -1,7 +1,7 @@
-package atm;
+package code.atm;
 
-import bank.Bank;
-import bank.Profile;
+import code.bank.Bank;
+import code.bank.Profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;

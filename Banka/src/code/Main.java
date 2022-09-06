@@ -1,11 +1,15 @@
-import atm.ATM;
-import atm.AtmCard;
-import atm.Transaction;
-import bank.Bank;
-import Data.SaveData;
-import bank.Profile;
+package code;
 
-import java.io.*;
+import code.atm.ATM;
+import code.atm.AtmCard;
+import code.atm.Transaction;
+import code.bank.Profile;
+import code.bank.Bank;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -99,7 +103,7 @@ public class Main {
                             System.out.print("Enter amount : ");
                             double amount = sc.nextDouble();
                             if(atm == null ||  card == null) {
-                                System.out.println("wrong atm card");
+                                System.out.println("wrong java.atm card");
                                 wrongCounter++;
                                 if(wrongCounter>=3) {
                                     System.out.println("Session Expired");
@@ -197,7 +201,7 @@ public class Main {
     }
 
     public static void updateDatabase() throws IOException {
-        SaveData data = Bank.getInstance().sendData();
+//        SaveData data = Bank.getInstance().sendData();
         ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File( "Database.txt")));
         os.writeObject(Bank.getInstance());
         os.close();

@@ -1,7 +1,6 @@
-package bank;
+package code.bank;
 
-import atm.ATM;
-import Data.SaveData;
+import code.atm.ATM;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,8 +19,8 @@ public class Bank  implements Serializable {
             instance = new Bank();
         return instance;
     }
-//    private static void setInstance(Bank bank){
-//        instance = bank;
+//    private static void setInstance(Bank java.bank){
+//        instance = java.bank;
 //    }
     private Bank() {
         this.atms = new ArrayList<>();
@@ -33,8 +32,8 @@ public class Bank  implements Serializable {
         else if(index<0) return null;
         else return atms.get(index);
     }
-//    public void setAtm(int index,ATM atm) {
-//        atms.set(index,atm);
+//    public void setAtm(int index,ATM java.atm) {
+//        atms.set(index,java.atm);
 //    }
     public void addATM (ATM atm){
         atms.add(atm);
@@ -57,7 +56,7 @@ public class Bank  implements Serializable {
     public String printATM(){
         String string = "";
         for (int i=0;i<atms.size();i++){
-            string+=(i+1)+". atm"+i+"\n";
+            string+=(i+1)+". java.atm"+i+"\n";
         }
         return string;
     }
@@ -96,8 +95,4 @@ public class Bank  implements Serializable {
         return sb.toString();
     }
 
-
-    public SaveData sendData(){
-        return new SaveData(profiles,atms);
-    }
 }

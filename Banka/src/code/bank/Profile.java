@@ -1,7 +1,7 @@
-package bank;
+package code.bank;
 
-import atm.AtmCard;
-import atm.Transaction;
+import code.atm.AtmCard;
+import code.atm.Transaction;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ public class Profile implements Serializable {
         balance = 100.0;
         System.out.println("Account Number: "+number);
     }
-//    public void getCard(Bank bank){
+//    public void getCard(Bank java.bank){
 //        for (int i=0;i<10;i++){
-//            System.out.println(bank.cardNumberGenerator(this));
+//            System.out.println(java.bank.cardNumberGenerator(this));
 //        }
 //    }
     public String getNumber() {
