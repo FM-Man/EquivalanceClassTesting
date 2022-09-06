@@ -22,11 +22,11 @@ public class Profile implements Serializable {
         balance = 100.0;
         System.out.println("Account Number: "+number);
     }
-    public void getCard(Bank bank){
-        for (int i=0;i<10;i++){
-            System.out.println(bank.cardNumberGenerator(this));
-        }
-    }
+//    public void getCard(Bank bank){
+//        for (int i=0;i<10;i++){
+//            System.out.println(bank.cardNumberGenerator(this));
+//        }
+//    }
     public String getNumber() {
         return number;
     }
@@ -35,7 +35,7 @@ public class Profile implements Serializable {
     public void addCard(AtmCard atmCard){
         atmCards.add(atmCard);
     }
-    public boolean addCard(int pin){
+    public boolean getAndAddCard(int pin){
         if(pin>=1000&&pin<10000){
             addCard(new AtmCard(this,pin));
             return true;

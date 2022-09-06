@@ -127,7 +127,7 @@ public class Main {
                         else if(c3==3){
                             System.out.println("Enter new PIN: ");
                             int pin = sc.nextInt();
-                            if(profile.addCard(pin)){
+                            if(profile.getAndAddCard(pin)){
                                 System.out.println("Card Creation Successful.");
                             }
                             else System.out.println("Invalid PIN");
