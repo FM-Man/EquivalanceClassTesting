@@ -35,6 +35,14 @@ public class Profile implements Serializable {
     public void addCard(AtmCard atmCard){
         atmCards.add(atmCard);
     }
+    public AtmCard atmCards(int index){return atmCards.get(index);}
+    public AtmCard findCard(String number){
+        for (AtmCard atmCard:atmCards){
+            if(atmCard.getNumber().equals(number)) return atmCard;
+        }
+        return null;
+    }
+
     public boolean getAndAddCard(int pin){
         if(pin>=1000&&pin<10000){
             addCard(new AtmCard(this,pin));
@@ -42,7 +50,7 @@ public class Profile implements Serializable {
         }
         else return false;
     }
-    public AtmCard atmCards(int index){return atmCards.get(index);}
+
     public ArrayList<Transaction> allTransactions(){
         ArrayList<Transaction> send = new ArrayList<>();
         for (AtmCard card: atmCards){
@@ -50,17 +58,26 @@ public class Profile implements Serializable {
         }
         return send;
     }
+
     public boolean requestTransactionApproval(Transaction t){
-        return balance >= t.getAmount() + 100;
+        return t.getAmount() >= 100 && balance >= t.getAmount() + 100;
     }
-    public void withdraw(double amount){this.balance-=amount;}
-    public void deposit(double amount){this.balance+=amount;}
-    public AtmCard findCard(String number){
-        for (AtmCard atmCard:atmCards){
-            if(atmCard.getNumber().equals(number)) return atmCard;
+
+    public boolean withdraw(double amount){
+        if(amount>=100){
+            this.balance -= amount;
+            return true;
         }
-        return null;
+        return false;
     }
+    public boolean deposit(double amount){
+        if(amount>=100){
+            this.balance += amount;
+            return true;
+        }
+        return false;
+    }
+
     public double getBalance(){
         return balance;
     }

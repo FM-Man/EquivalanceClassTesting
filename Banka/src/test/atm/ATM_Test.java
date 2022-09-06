@@ -16,23 +16,28 @@ public class ATM_Test {
         testProfile.addCard(ac);
     }
 
+    /*****************************************************/
+
     @Test
-    public void hasEnoughMoneyTestValid(){
+    public void hasEnoughMoneyTest_Valid(){
         Transaction testTransaction = new Transaction(100,ac);
         assertTrue(testAtm.hasEnoughMoney(testTransaction));
     }
+
     @Test
-    public void hasEnoughMoneyTestLessThanEqualZero1(){
+    public void hasEnoughMoneyTest_Zero(){
         Transaction testTransaction = new Transaction(0,ac);
         assertTrue(!testAtm.hasEnoughMoney(testTransaction));
     }
+
     @Test
-    public void hasEnoughMoneyTestLessThanEqualZero2(){
+    public void hasEnoughMoneyTest_LessThanZero(){
         Transaction testTransaction = new Transaction(-1,ac);
         assertTrue(!testAtm.hasEnoughMoney(testTransaction));
     }
+
     @Test
-    public void hasEnoughMoneyTestMoreThanCash(){
+    public void hasEnoughMoneyTest_MoreThanCash(){
         Transaction testTransaction = new Transaction(10000,ac);
         assertTrue(!testAtm.hasEnoughMoney(testTransaction));
     }

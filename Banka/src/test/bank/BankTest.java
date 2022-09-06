@@ -13,27 +13,29 @@ import java.util.regex.Pattern;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BankTest {
-    private Profile testProfile;
-    private ATM testATM;
-    private AtmCard testCard;
+    private final Profile testProfile;
+
     public BankTest(){
-        testATM = new ATM();
+        ATM testATM = new ATM();
         Bank.getInstance().addATM(testATM);
         testProfile = new Profile("name", "address");
         testProfile.deposit(1000);
-        testCard = new AtmCard(testProfile,1234);
+        AtmCard testCard = new AtmCard(testProfile, 1234);
         testProfile.addCard(testCard);
         Bank.getInstance().addProfile(testProfile);
     }
 
+
+    /*******************************************************/
     @Test
     public void getInstanceTest(){
-        assertTrue(Bank.getInstance()!=null);
+        assertNotNull(Bank.getInstance());
     }
 
+    /*******************************************************/
     @Test
     public void findProfile_wrongAccountNumber(){
-        assertEquals(null,Bank.getInstance().findProfile("1234"));
+        assertNull(Bank.getInstance().findProfile("1234"));
     }
 
     @Test
@@ -41,8 +43,10 @@ public class BankTest {
         assertEquals(testProfile.toString(),Bank.getInstance().findProfile("AAAD").toString());
     }
 
+    /********************************************************/
+
     @Test
-    public void accountNumberGeneratorTest(){
+    public void accountNumberGeneratorTest_Valid(){
         Pattern p = Pattern.compile("^[ABCDE]{4}$");
         Matcher m = p.matcher(Bank.getInstance().accountNumberGenerator());
         assertTrue(m.find());
@@ -62,7 +66,6 @@ public class BankTest {
         assertFalse(m.find());
     }
 
-
     @Test
     public void accountNumberGeneratorTest_ContainsAnythingButA_E(){
         Pattern p = Pattern.compile("[F-Z]+");
@@ -70,6 +73,7 @@ public class BankTest {
         assertFalse(m.find());
     }
 
+    /**************************************************************/
 
     @Test
     public void cardNumberGeneratorTest_MatchingFormat(){
@@ -106,7 +110,6 @@ public class BankTest {
         assertFalse(m.find());
     }
 
-
     @Test
     public void cardNumberGeneratorTest_NotContainingNumberInFirstFour(){
         Pattern p = Pattern.compile("^[^0-9]{4}");
@@ -122,7 +125,7 @@ public class BankTest {
     }
 
     @Test
-    public void cardNumberGeneratorTest_NotContainingAlphabetInlast5(){
+    public void cardNumberGeneratorTest_NotContainingAlphabetInLast5(){
         Pattern p = Pattern.compile("[a-zA-Z]{5}$");
         Matcher m = p.matcher(Bank.getInstance().cardNumberGenerator(testProfile));
         assertFalse(m.find());
