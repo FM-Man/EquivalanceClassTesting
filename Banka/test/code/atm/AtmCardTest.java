@@ -1,7 +1,5 @@
-package test.atm;
+package code.atm;
 
-import code.atm.ATM;
-import code.atm.AtmCard;
 import code.bank.Profile;
 import org.junit.jupiter.api.Test;
 

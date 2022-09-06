@@ -1,11 +1,9 @@
-package test.atm;
+package code.atm;
 
-import code.atm.ATM;
-import code.atm.AtmCard;
-import code.atm.Transaction;
 import code.bank.Profile;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ATM_Test {
@@ -27,18 +25,18 @@ public class ATM_Test {
     @Test
     public void hasEnoughMoneyTest_Zero(){
         Transaction testTransaction = new Transaction(0,ac);
-        assertTrue(!testAtm.hasEnoughMoney(testTransaction));
+        assertFalse(testAtm.hasEnoughMoney(testTransaction));
     }
 
     @Test
     public void hasEnoughMoneyTest_LessThanZero(){
         Transaction testTransaction = new Transaction(-1,ac);
-        assertTrue(!testAtm.hasEnoughMoney(testTransaction));
+        assertFalse(testAtm.hasEnoughMoney(testTransaction));
     }
 
     @Test
     public void hasEnoughMoneyTest_MoreThanCash(){
         Transaction testTransaction = new Transaction(10000,ac);
-        assertTrue(!testAtm.hasEnoughMoney(testTransaction));
+        assertFalse(testAtm.hasEnoughMoney(testTransaction));
     }
 }

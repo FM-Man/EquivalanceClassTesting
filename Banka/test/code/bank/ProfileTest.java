@@ -1,20 +1,17 @@
-package test.bank;
+package code.bank;
 
 import code.atm.ATM;
 import code.atm.AtmCard;
 import code.atm.Transaction;
-import code.bank.Bank;
-import code.bank.Profile;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProfileTest {
-    private Profile testProfile;
-    private ATM testATM;
-    private AtmCard testCard;
+    private final Profile testProfile;
+    private final AtmCard testCard;
     public ProfileTest(){
-        testATM = new ATM();
+        ATM testATM = new ATM();
         Bank.getInstance().addATM(testATM);
         testProfile = new Profile("name", "address");
         testCard = new AtmCard(testProfile,1234);

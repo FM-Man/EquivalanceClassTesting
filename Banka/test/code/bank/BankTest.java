@@ -1,10 +1,8 @@
-package test.bank;
+package code.bank;
 
 
 import code.atm.ATM;
 import code.atm.AtmCard;
-import code.bank.Bank;
-import code.bank.Profile;
 import org.junit.jupiter.api.Test;
 
 import java.util.regex.Matcher;
