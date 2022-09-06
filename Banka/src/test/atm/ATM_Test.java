@@ -1,9 +1,9 @@
 package test.atm;
 
-import atm.ATM;
-import atm.AtmCard;
-import atm.Transaction;
-import bank.Profile;
+import code.atm.ATM;
+import code.atm.AtmCard;
+import code.atm.Transaction;
+import code.bank.Profile;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
