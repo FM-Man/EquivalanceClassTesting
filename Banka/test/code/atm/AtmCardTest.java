@@ -21,7 +21,7 @@ public class AtmCardTest {
 
     @Test
     public void swipeTest_NegativeAmount(){
-        assertEquals("ATM processing error. Transaction Unsuccessful",testCard.swipe(   -1,testATM,1234));
+        assertEquals("Not sufficient Balance",testCard.swipe(   -1,testATM,1234));
     }
 
     @Test

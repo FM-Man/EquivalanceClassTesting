@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ATM_Test {
+public class ATMTest {
     Profile testProfile = new Profile("Fahim Morshed", "Moghbazar");
     AtmCard ac = new AtmCard(testProfile,1234);
     ATM testAtm = new ATM();
-    public ATM_Test(){
+    public ATMTest(){
         testProfile.addCard(ac);
     }
 
